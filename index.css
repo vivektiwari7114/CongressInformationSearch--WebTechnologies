@@ -1,0 +1,89 @@
+@media only screen and (max-width: 840px) {
+    .table{width:640px !important;}
+}
+
+body {
+    background-color: white;
+}
+
+ul {
+    color: black;
+}
+
+li {
+    color: black;
+}
+.makeYellow{
+    color:yellow;
+}
+
+
+@media only screen and (max-width: 700px) {
+                .hideMe{display: none;}
+                    }
+            .sidebar-nav
+            {
+                background: black;
+                list-style: none;
+                height: 100%;
+
+            }
+            #main #demo {
+                width: 15%;
+                visibility: visible;
+                }
+            #main.toggled
+            {
+                overflow: none;
+            }
+            #main.toggled #demo {
+                width: 0px;
+                visibility: collapse;
+
+            }
+            #main.toggled .sidebar-nav {
+                padding-left: 0px;
+                visibility: collapse;
+
+            }
+            #main.toggled .sidebar-nav li{
+                visibility: collapse;
+            }
+            .sidebar-nav {
+                position: absolute;
+                width: 15%;
+                margin: 0;
+                list-style: none;
+                padding-top: 00px;
+            }
+            .sidebar-nav li {
+                text-indent: 0px;
+                line-height: 40px;
+            }
+            .sidebar-nav li a {
+                display: block;
+                text-decoration: none;
+                color: #6F6F6F;
+            }
+            #outputblock{
+                position: relative;
+                margin-left: 15%;
+                margin-right: 0px;
+                width: auto;
+                overflow: scroll;
+                height: 100vh;
+            }
+            .marginZero
+            {
+               margin-left: 0px !important;
+              
+            }
+        
+            #wrapper.toggled .hideMe {
+                visibility: hidden;
+            }
+/*
+#colorchange{
+    background:white !important;
+}
+*/

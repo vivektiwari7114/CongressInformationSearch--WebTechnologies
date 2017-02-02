@@ -1,0 +1,210 @@
+
+ <html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="index.css" rel="stylesheet">
+    <!-- <script type="text/javascript" src="path_to/jquery.js"></script>
+       <script type="text/javascript" src="path_to/jquery.simplePagination.js"></script> -->
+        <script data-require="angular.js@1.3.0" data-semver="1.3.0" src="https://code.angularjs.org/1.3.0/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script src="moment.js"></script>
+        <script src="jquery.twbsPagination.js"></script>
+        <!-- <script src="http://momentjs.com/downloads/moment.js"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
+          
+        <title>HW 8</title>
+        <style>
+            
+            
+            @media only screen and (max-width: 700px) {
+                .hideMe{display: none;}
+                    }
+            .sidebar-nav
+            {
+                background: black;
+                list-style: none;
+                height: 100%;
+
+            }
+            #wrapper #demo {
+                width: 15%;
+                visibility: visible;
+                }
+            #wrapper.toggled
+            {
+                overflow: none;
+            }
+            #wrapper.toggled #demo {
+                width: 0px;
+                visibility: collapse;
+
+            }
+            #wrapper.toggled .sidebar-nav {
+                padding-left: 0px;
+                visibility: collapse;
+
+            }
+            #wrapper.toggled .sidebar-nav li{
+                visibility: collapse;
+            }
+            .sidebar-nav {
+                position: absolute;
+                width: 15%;
+                margin: 0;
+                list-style: none;
+                padding-top: 00px;
+            }
+            .sidebar-nav li {
+                text-indent: 0px;
+                line-height: 40px;
+            }
+            .sidebar-nav li a {
+                display: block;
+                text-decoration: none;
+                color: #6F6F6F;
+            }
+            #outputblock{
+                position: relative;
+                margin-left: 15%;
+                margin-right: 0px;
+                width: auto;
+                overflow: scroll;
+                height: 100vh;
+            }
+            .marginZero
+            {
+               margin-left: 0px !important;
+              
+            }
+        
+            #wrapper.toggled .hideMe {
+                visibility: hidden;
+            }
+
+        </style>
+      
+       
+    </head>
+    <body>      
+        <div class="container-fluid">
+           
+            <div class="row navbar navbar-default" style="padding-top:10px; background: #fff;" >
+                <div class="col-xs-1 vcenter" style="padding-left:5px;">
+                    <button class="navbar collapse in"  data-target="#demo" id="menu-toggle" style="background-color:white;">
+                        <span class="fa fa-bars" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="col-xs-11">
+                    <p class="text-center"><a target='_blank' href="http://sunlightfoundation.com/"><img class="image1" style="margin-left: auto;margin-right: auto;" src="http://congress.qzfd3282bu.us-west-2.elasticbeanstalk.com/images/logo.png"><span style="color:black;font-weight:bold;font-size:20px">Congress API</span></a></p>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav nav-stacked nav-default nav" id="demo">
+                    <li><a class="fa fa-user" style="color:white;text-indent: 10px;" onclick="header(1)" >&nbsp;<span class="hideMe" >Legislators</span></a></li>
+                    <li><a class="fa fa-file-o" style="color:white;text-indent: 10px;" onclick="header(2)">&nbsp;<span class="hideMe" >Bills</span></a></li>
+                    <li><a class="fa fa-sign-in" style="color:white;text-indent: 10px;" onclick="header(3)">&nbsp;<span class="hideMe" >Committees</span></a></li>
+                    <li><a class="fa fa-star" style="color:white;text-indent: 10px;" onclick="header(4)">&nbsp;<span class="hideMe" >Favorites</span></a></li>
+                </ul>     
+            </div>
+   <!--         <div id="outputblock" style="background:#efefef;"> -->
+            <div id="outputblock">
+                <div>
+                    <div class="row active"  id = "menubar"  style="background:#efefef;">       
+                    </div>
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                  <!--      <div class="panel-body">-->
+                                            <nav class="navbar">
+                                                <div class="">
+                                                    <ul class="nav nav-tabs"id = "tabsid">
+                                                    </ul>
+                                                </div>
+                                            </nav>
+                                 <!--       </div> -->
+                                        <div class="panel-body" >
+                                            <div class="panel panel-default" style="box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5)">
+                                                <div class="panel-heading col-xs-12" id = "display-header">
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div id = "display" class = "table-responsive col-xs-12">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="item">
+                                <div id = "view_details">
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+   
+     <!--
+     <div id="outputblock">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row active"  id = "menubar">       
+                        </div>
+                        <div id="myCarousel" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                     <div class="panel panel-default">
+                                        <nav class="navbar">
+                                            <div class="container-fluid">
+                                                <ul class="nav nav-tabs"id = "tabsid">
+                                                </ul>
+                                            </div>
+                                        </nav>
+                                        <div class="panel-body">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading col-xs-12" id = "display-header">
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div id = "display" class = "table-responsive col-xs-12">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div id = "view_details">
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                </div>            
+            </div>
+     -->
+     
+     <script>
+        
+       $("#menu-toggle").click(function() {  
+          // console.log("Hello");
+             $("#outputblock").toggleClass("marginZero");
+             $("#sidebar-wrapper").toggle();
+          
+           
+          
+         });
+       
+     </script>
+</html>
